@@ -1,0 +1,143 @@
+/* Two alternate visual directions; recipe data and layout remain shared. */
+.page-intro { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.style-picker { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+.style-picker-label { font-size: 10px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); }
+.style-options { display: flex; gap: 5px; padding: 4px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); }
+.style-option { display: flex; align-items: center; justify-content: center; gap: 7px; min-height: 44px; padding: 8px 12px; border-radius: 8px; font-size: 12px; color: var(--muted); border: 1px solid transparent; }
+.style-option[aria-pressed=true] { background: var(--sage); color: var(--ink); border-color: var(--line); font-weight: 650; }
+.style-swatch { width: 12px; height: 12px; border-radius: 50%; border: 1px solid #0001; background: #294936; }
+[data-style=mercado] .style-swatch { background: #bf452b; }
+[data-style=minimal] .style-swatch { background: #3159ce; }
+
+/* Mercado: warm paper, bold editorial type and cheerful stamped details. */
+:root[data-theme=mercado] {
+  --paper: #fff5e3;
+  --white: #fffcf5;
+  --ink: #4b2c22;
+  --muted: #886b5c;
+  --line: #e5ccad;
+  --green: #b73d24;
+  --sage: #fbe4c4;
+  --orange: #aa3520;
+}
+[data-theme=mercado] .site-header { border-bottom: 2px solid var(--ink); }
+[data-theme=mercado] .brand { font-weight: 800; }
+[data-theme=mercado] .brand-icon { border-radius: 9px; transform: rotate(-7deg); background: #b73d24; }
+[data-theme=mercado] .page-intro h1 { font-family: Georgia, serif; font-weight: 800; font-size: clamp(34px, 5.5vw, 58px); letter-spacing: -2px; color: #a33723; }
+[data-theme=mercado] .collection { border-top: 0; padding-top: 12px; }
+[data-theme=mercado] .search { border: 1.5px solid #d9ba91; background: #fffcf5; border-radius: 24px; }
+[data-theme=mercado] .filter { border: 1.5px solid #d9ba91; background: #fffcf5; font-weight: 600; }
+[data-theme=mercado] .filter.active { background: #efc45c; color: #4b2c22; border-color: #b48731; box-shadow: 0 2px 0 #b48731; }
+[data-theme=mercado] .recipe-grid { gap: 24px; }
+[data-theme=mercado] .recipe-card { border: 1.5px solid #d5b28b; border-radius: 18px; box-shadow: 3px 4px 0 #ebd4b4; }
+[data-theme=mercado] .recipe-card:hover { box-shadow: 3px 5px 0 #dcc09a; }
+[data-theme=mercado] .recipe-card.selected { border-color: #b73d24; box-shadow: 3px 4px 0 #b73d24; }
+[data-theme=mercado] .card-content h3 { font-family: Georgia, serif; font-weight: 700; letter-spacing: -.8px; }
+[data-theme=mercado] .card-eyebrow { font-weight: 750; }
+[data-theme=mercado] .card-content>p { color: #886b5c; }
+[data-theme=mercado] .card-visual img { filter: saturate(1.2); }
+[data-theme=mercado] .image-badge { background: #f7d778; border: 1px solid #d8b95c; border-radius: 20px; }
+[data-theme=mercado] .card-bottom { border-top: 1px dashed #dfc6a6; background: #fff8e9; }
+[data-theme=mercado] .stepper { border: 1.5px solid #dcc19c; border-radius: 24px; }
+[data-theme=mercado] .stepper button:hover:not(:disabled) { background: #fbe4c4; }
+[data-theme=mercado] .recipe-link { color: #aa3520; }
+[data-theme=mercado] .select-recipe input { border: 1.5px solid #cbb595; border-radius: 50%; background: #fffcf5; }
+[data-theme=mercado] .select-recipe input:checked { background: #b73d24; border-color: #b73d24; }
+[data-theme=mercado] .button { border-radius: 24px; }
+[data-theme=mercado] .primary:hover { background: #92311e; }
+[data-theme=mercado] .secondary { border-color: #dcc19c; }
+[data-theme=mercado] .save-status { color: #7d614b; }
+[data-theme=mercado] .save-status>span { background: #f6e5bf; }
+[data-theme=mercado] .collection-note { border-color: #d3b591; }
+[data-theme=mercado] .note-label { color: #98744f; }
+[data-theme=mercado] .selection-bar { background: #fffcf5f5; border-color: #dfc4a1; box-shadow: 0 7px 30px #70351f24; border-radius: 20px; }
+[data-theme=mercado] .detail-body h2, [data-theme=mercado] .detail-columns h3, [data-theme=mercado] .shopping-heading h1 { font-weight: 700; }
+[data-theme=mercado] .plan-summary, [data-theme=mercado] .detail-controls, [data-theme=mercado] .storage-note, [data-theme=mercado] .list-footnote { background: #f9ebd0; border-color: #dfc4a1; border-radius: 15px; }
+[data-theme=mercado] .plan-recipe, [data-theme=mercado] .plan-tip, [data-theme=mercado] .shopping-item, [data-theme=mercado] .shopping-group h2 { border-color: #e4d1b7; }
+[data-theme=mercado] .shopping-group h2 { font-weight: 700; }
+[data-theme=mercado] progress::-webkit-progress-bar { background: #f0e2c6; }
+[data-theme=mercado] progress::-webkit-progress-value { background: #b73d24; }
+[data-theme=mercado] progress::-moz-progress-bar { background: #b73d24; }
+
+/* Minimal: white surfaces, crisp sans serif, restrained cobalt accents. */
+:root[data-theme=minimal] {
+  --paper: #f8f9fc;
+  --white: #ffffff;
+  --ink: #242a38;
+  --muted: #687080;
+  --line: #dce0e8;
+  --green: #3159ce;
+  --sage: #eaf0ff;
+  --orange: #3159ce;
+  --serif: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+[data-theme=minimal] .brand { font-family: var(--sans); font-weight: 750; font-size: 24px; letter-spacing: -1px; }
+[data-theme=minimal] .brand-icon { font-family: Georgia, serif; border-radius: 11px; }
+[data-theme=minimal] .page-intro h1 { font-weight: 750; font-size: clamp(32px, 5vw, 48px); letter-spacing: -1.8px; }
+[data-theme=minimal] .site-header { border-color: #e0e4ed; }
+[data-theme=minimal] .collection { border-top: 0; padding-top: 12px; }
+[data-theme=minimal] .search { background: #fff; border-color: #dce0e8; border-radius: 10px; }
+[data-theme=minimal] .filter { border: 0; border-radius: 8px; background: #edf0f5; color: #646d7e; font-weight: 550; }
+[data-theme=minimal] .filter.active { background: #242a38; color: #fff; }
+[data-theme=minimal] .recipe-grid { gap: 16px; }
+[data-theme=minimal] .recipe-card { border-color: #e0e4ec; border-radius: 14px; box-shadow: 0 2px 4px #192a4804; }
+[data-theme=minimal] .recipe-card.selected { border-color: #3159ce; box-shadow: 0 0 0 1px #3159ce; }
+[data-theme=minimal] .card-visual { background: #fff; min-height: 168px; margin: 14px 0 14px 14px; border-radius: 9px; overflow: hidden; }
+[data-theme=minimal] .card-visual img { filter: saturate(.8); }
+[data-theme=minimal] .card-content h3 { font-size: 21px; font-weight: 650; line-height: 1.22; letter-spacing: -.6px; }
+[data-theme=minimal] .card-content>p { color: #687080; }
+[data-theme=minimal] .card-eyebrow { color: #677184; font-weight: 650; letter-spacing: 1px; }
+[data-theme=minimal] .card-tag { color: #53668b; }
+[data-theme=minimal] .card-bottom { border-color: #eef0f5; background: #fcfdff; }
+[data-theme=minimal] .select-recipe { top: 6px; right: 6px; }
+[data-theme=minimal] .select-recipe input { border: 1px solid #b7c0ce; border-radius: 8px; background: #ffffffed; }
+[data-theme=minimal] .select-recipe input:checked { background: #3159ce; border-color: #3159ce; }
+[data-theme=minimal] .stepper { background: #f2f4f8; border: 0; border-radius: 8px; }
+[data-theme=minimal] .stepper button:hover:not(:disabled) { background: #e0e7f6; }
+[data-theme=minimal] .recipe-link { font-weight: 650; color: #3159ce; }
+[data-theme=minimal] .image-badge { background: #fffffff0; color: #4c586f; border-radius: 6px; }
+[data-theme=minimal] .save-status { color: #677184; }
+[data-theme=minimal] .save-status>span { background: #eaf0ff; color: #3159ce; }
+[data-theme=minimal] .collection-note { border: 1px solid #e0e4ec; background: #fff; border-radius: 12px; }
+[data-theme=minimal] .note-label { font-style: normal; font-size: 12px; color: #748093; }
+[data-theme=minimal] .selection-bar { background: #fffffffa; border-color: #dce0e8; border-radius: 14px; box-shadow: 0 6px 30px #243d701c; }
+[data-theme=minimal] .button { border-radius: 8px; }
+[data-theme=minimal] .primary:hover { background: #2546a5; }
+[data-theme=minimal] .secondary { border-color: #dce0e8; }
+[data-theme=minimal] .plan-summary, [data-theme=minimal] .detail-controls, [data-theme=minimal] .storage-note, [data-theme=minimal] .list-footnote { background: #edf2fb; border-color: #dae1ee; border-radius: 12px; }
+[data-theme=minimal] .detail-body h2, [data-theme=minimal] .shopping-heading h1, [data-theme=minimal] .detail-columns h3, [data-theme=minimal] .plan-summary h2 { font-weight: 650; letter-spacing: -1px; }
+[data-theme=minimal] .shopping-heading h1 em { font-style: normal; }
+[data-theme=minimal] .plan-recipe, [data-theme=minimal] .plan-tip, [data-theme=minimal] .shopping-item, [data-theme=minimal] .shopping-group h2 { border-color: #dce0e8; }
+[data-theme=minimal] .shopping-group h2 { font-weight: 650; font-size: 21px; }
+[data-theme=minimal] progress::-webkit-progress-bar { background: #e3e8f2; }
+[data-theme=minimal] progress::-webkit-progress-value { background: #3159ce; }
+[data-theme=minimal] progress::-moz-progress-bar { background: #3159ce; }
+
+/* Shared alternate-theme surfaces and text, including the recipe dialog. */
+:root:is([data-theme=mercado], [data-theme=minimal]) :is(.plan-tip p, .local-note, .storage-note p, .extras p, .steps p, .plan-summary .eyebrow, .plan-recipe small, .shopping-item small, .ingredient-row small) { color: var(--muted); }
+:root:is([data-theme=mercado], [data-theme=minimal]) :is(#nav-count, .heading-count, .shopping-group h2>span) { background: var(--sage); color: var(--ink); }
+:root:is([data-theme=mercado], [data-theme=minimal]) :is(.extras, .detail-action, .source-notes) { border-color: var(--line); }
+:root:is([data-theme=mercado], [data-theme=minimal]) .save-error { color: #a02c20; }
+@media (min-width: 600px) {
+  [data-theme=minimal] .card-content h3 { font-size: 27px; }
+  [data-theme=minimal] .card-visual { margin: 18px 0 18px 18px; min-height: 200px; }
+  [data-theme=mercado] .card-bottom, [data-theme=minimal] .card-bottom { background: transparent; }
+}
+@media (max-width: 760px) {
+  .page-intro { flex-direction: column; align-items: stretch; gap: 20px; padding-bottom: 20px; }
+  .style-picker { gap: 7px; }
+  .style-option { flex: 1; padding: 8px; }
+  [data-theme=mercado] .page-intro h1 { font-size: 36px; }
+  [data-theme=minimal] .page-intro h1 { font-size: 34px; }
+  [data-theme=minimal] .brand { font-size: 21px; }
+}
+@media (max-width: 360px) {
+  [data-theme=mercado] .page-intro h1 { font-size: 32px; }
+  [data-theme=minimal] .page-intro h1 { font-size: 30px; }
+  [data-theme=minimal] .card-content h3 { font-size: 19px; }
+}
+@media print {
+  .style-picker { display: none; }
+  :root[data-theme] body { background: #fff; color: #000; }
+  :root[data-theme] .shopping-group h2 { font-size: 19px; }
+}

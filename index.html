@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es-MX" data-theme="mercado">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff5e3">
+  <title>Recetario de pepe</title>
+  <meta name="description" content="Tus recetas, porciones ajustables y una lista de compras para cocinar a tu ritmo.">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="themes.css">
+</head>
+<body>
+  <header class="site-header"><a class="brand" href="#recetas"><span class="brand-icon">m<span>c</span></span>mi cocina<span class="brand-dot">.</span></a><nav aria-label="Navegación principal"><a id="nav-recipes" href="#recetas">Recetario</a><a id="nav-shopping" href="#compras">Lista de compras <span id="nav-count">0</span></a></nav><span class="local-badge"><i></i> Tu espacio personal</span></header>
+  <main id="app"></main>
+  <footer class="site-footer"><span>Hecho para cocinar a tu ritmo.</span><span>Tu recetario, creciendo contigo <span class="tiny-spark">✳</span></span></footer>
+  <div id="selection-dock"></div>
+  <dialog id="recipe-dialog" aria-labelledby="recipe-title"></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

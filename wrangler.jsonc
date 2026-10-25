@@ -1,0 +1,9 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "recetario-de-pepe",
+  "compatibility_date": "2026-10-25",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist"
+  }
+}
