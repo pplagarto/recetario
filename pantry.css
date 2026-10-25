@@ -7,3 +7,23 @@
 .pantry-jump{margin:0 0 24px;min-height:44px}#recommendations-section{scroll-margin-top:20px;outline-offset:6px}textarea:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
 
 [data-theme=mercado] .pantry-page h1{font-family:Georgia,serif;font-weight:800;color:var(--orange)}[data-theme=mercado] .pantry-page h2,[data-theme=mercado] .pantry-page h3{font-weight:700}
+
+/* Selection is an explicit, full-width touch target rather than an image overlay. */
+.card-bottom{flex-wrap:wrap}
+.recipe-choice{flex:1 0 100%;display:flex;align-items:center;gap:12px;min-height:66px;padding:12px 14px;border:2px solid var(--green);border-radius:12px;cursor:pointer;background:var(--white);text-align:left}
+.recipe-choice strong{display:block;font-size:14px;color:var(--green)}
+.recipe-choice small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.recipe-choice.is-selected{background:var(--sage)}
+.recipe-choice input[type=checkbox],.pantry-item input[type=checkbox],.shopping-item input[type=checkbox]{width:26px;height:26px;min-width:26px;margin:0;cursor:pointer;accent-color:var(--green)}
+.recipe-choice:focus-within,.pantry-item:focus-within,.shopping-item:focus-within{outline:2px solid var(--green);outline-offset:2px}
+.pantry-item{padding:0;border:1px solid var(--line);border-radius:12px;margin:8px 3px;background:var(--white);overflow:hidden}
+.pantry-item>label{padding:14px 12px;min-height:72px;gap:12px}
+.pantry-item strong{display:block;font-size:14px;font-weight:600}
+.pantry-item.is-selected{background:var(--sage);border-color:var(--green)}
+.selection-hint,.shopping-item .selection-hint{display:block;font-size:12px;color:var(--green);margin-top:4px;line-height:1.4}
+.pantry-quantity{padding:4px 12px 14px;margin:0;gap:12px}
+.shopping-item{padding:16px 12px;margin:10px 0;border:1px solid var(--line);border-radius:12px;background:var(--white);min-height:72px}
+.shopping-item.is-checked{background:var(--sage);border-color:var(--green);opacity:1}
+.shopping-item.is-checked .shopping-item-name>strong,.shopping-item.is-checked .shopping-amount{color:var(--muted)}
+@media(hover:hover){.recipe-choice:hover,.pantry-item>label:hover,.shopping-item:hover{background:var(--sage)}}
+@media print{.selection-hint{display:none!important}.shopping-item{padding:7px 0;margin:0;border-width:0 0 1px;border-radius:0;min-height:0}.shopping-item input[type=checkbox]{width:18px;height:18px;min-width:18px}}
