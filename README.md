@@ -1,5 +1,7 @@
 # Recetario de pepe
 
+Web: https://recetario-de-pepe.pepe-lag-gar-3da.workers.dev/
+
 Recetario personal en HTML, CSS y JavaScript. La aplicación no tiene dependencias de ejecución; Node.js sirve la vista local y Wrangler se utiliza para publicar en Cloudflare.
 
 ## Abrir
@@ -32,7 +34,7 @@ Las recetas viven en `data/recipes.js`: añadir un objeto con un identificador �
 
 ## Guardado
 
-La selección, cantidades, extras y marcas de compra se guardan inmediatamente con cada cambio en localStorage del navegador para este origen, sin esperar a cerrar la página ni confirmar la lista. Al volver a la misma dirección, incluso tras cerrar la pestaña, se recuperan. La interfaz indica si el guardado fue exitoso o si falló. Las recetas están en archivos del proyecto. No hay sincronización entre navegadores ni dispositivos; borrar los datos del navegador borra el plan, no las recetas. El modo privado no ofrece persistencia después de cerrar la sesión privada. El servidor escucha únicamente en 127.0.0.1: la URL localhost del Mac aún no es accesible desde el celular. La vista móvil se puede revisar localmente en `/tests/mobile-preview.html`. Para usar un teléfono real habrá que habilitar acceso en la red local o desplegar la aplicación con una dirección estable.
+La selección, cantidades, extras y marcas de compra se guardan inmediatamente con cada cambio en localStorage del navegador para este origen, sin esperar a cerrar la página ni confirmar la lista. Al volver a la misma dirección, incluso tras cerrar la pestaña, se recuperan. La interfaz indica si el guardado fue exitoso o si falló. Las recetas están en archivos del proyecto. No hay sincronización entre navegadores ni dispositivos; borrar los datos del navegador borra el plan, no las recetas. El modo privado no ofrece persistencia después de cerrar la sesión privada. El servidor escucha únicamente en 127.0.0.1: la URL localhost del Mac aún no es accesible desde el celular. La vista móvil se puede revisar localmente en `/tests/mobile-preview.html`. Desde el teléfono, abre el enlace público de Cloudflare indicado arriba.
 
 ## Verificación
 
@@ -47,7 +49,7 @@ La selección, cantidades, extras y marcas de compra se guardan inmediatamente c
 
 ## Comparar estilos antes del despliegue
 
-El selector **Probar estilos** del recetario permite alternar entre Original (crema y verde editorial), Mercado (papel cálido, rojo y amarillo, títulos serif marcados) y Minimal (superficies blancas, tipografía sans serif y azul). Se aplican también a las fichas y la lista de compras. La preferencia se guarda aparte del plan, en `mi-cocina:theme`, y no cambia las recetas, cantidades ni productos marcados. Las reglas están en `themes.css`. El selector se oculta al imprimir. Cuando se elija el diseño definitivo se puede retirar el selector y fijar ese tema.
+El selector **Probar estilos** del recetario permite alternar entre Original (crema y verde editorial), Mercado (papel cálido, rojo y amarillo, títulos serif marcados) y Minimal (superficies blancas, tipografía sans serif y azul). Se aplican también a las fichas y la lista de compras. La preferencia se guarda aparte del plan, en `mi-cocina:theme`, y no cambia las recetas, cantidades ni productos marcados. Las reglas están en `themes.css`. El selector se oculta al imprimir. En producción está fijado Mercado y el selector permanece oculto.
 
 ## Publicación en Cloudflare
 
