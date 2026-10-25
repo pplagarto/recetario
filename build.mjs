@@ -7,7 +7,7 @@ const root = fileURLToPath(new URL('.', import.meta.url));
 const out = path.join(root, 'dist');
 // Explicit allowlist: source tooling, screenshots and preview pages never ship.
 const files = [
-  'index.html', 'app.js', 'calculations.js', 'styles.css', 'themes.css',
+  'index.html', 'app.js', 'calculations.js', 'styles.css', 'themes.css', 'pantry.js', 'pantry.css',
   'assets/brownies.svg', 'assets/burritos.svg', 'assets/caldo.svg', 'assets/icon.svg',
   'data/recipes.js', 'data/recetario-original.md', '_headers'
 ];

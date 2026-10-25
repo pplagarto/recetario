@@ -13,4 +13,4 @@ http.createServer(async (req, res) => {
     res.writeHead(200, { 'Content-Type': types[path.extname(file)], 'Cache-Control': 'no-cache' });
     res.end(body);
   } catch { res.writeHead(404); res.end('No encontrado'); }
-}).listen(4173, '127.0.0.1', () => console.log('Mi cocina: http://localhost:4173'));
+}).listen(Number(process.env.PORT) || 4173, '127.0.0.1', () => console.log(`Mi cocina: http://localhost:${process.env.PORT || 4173}`));

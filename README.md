@@ -72,3 +72,11 @@ La configuración solo sirve archivos estáticos; no ejecuta un Worker de backen
 La URL de producción tendrá su propio almacenamiento del navegador: la selección de localhost no se transfiere automáticamente. El guardado persiste entre visitas al mismo origen; no sincroniza dispositivos. La web requiere conexión para cargar y no incluye todavía caché para uso sin conexión.
 
 Para actualizar recetas, edita `data/recipes.js`, ejecuta `npm test` y envía los cambios a `main`. Conserva el nombre del Worker para mantener la dirección y el almacenamiento de los usuarios.
+
+## Mi despensa
+
+En **Mi despensa** puedes marcar los ingredientes disponibles o escribir una lista y revisar las coincidencias antes de añadirlas. El catálogo se construye a partir de los ingredientes de las recetas, incluidos sus extras; por ahora las recomendaciones se limitan a esas recetas. El reconocimiento de texto es local y admite nombres conocidos, comas, saltos de línea y «y». No consulta un servicio de IA ni inventa recetas. Los nombres ambiguos o desconocidos se muestran para revisión; las cantidades repetidas conservan la última mención.
+
+Las cantidades son opcionales y usan la unidad que indica cada ingrediente. El texto admite conversiones de kg a g y de ml a l; no se convierten piezas a gramos ni se intercambian productos distintos. Una cantidad vacía significa «lo tengo, pero no sé cuánto»; cero significa agotado. Las recomendaciones priorizan recetas con cantidades cubiertas, luego recetas con todos los ingredientes registrados y finalmente las que aprovechan más ingredientes. Se actualizan con las porciones y extras seleccionados. Los ingredientes al gusto requieren revisión.
+
+**Añadir al plan y ver compras** conserva las recetas ya seleccionadas y activa **Descontar lo que tengo en casa**. Primero se agregan las cantidades de todo el plan y después se descuenta la despensa una sola vez. Las cantidades desconocidas permanecen en la lista con una nota para revisar. El inventario no disminuye al planificar ni al marcar una compra: actualízalo conforme consumas o repongas ingredientes. La despensa se guarda con el plan en el navegador, sin sincronización entre dispositivos.
