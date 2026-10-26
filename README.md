@@ -16,7 +16,9 @@ Desde esta carpeta ejecuta `npm start` y abre http://localhost:4173. Para detene
 4. Marca las recetas que quieras y pulsa **Crear lista de compras**.
 5. Revisa la lista agrupada por área del supermercado. Puedes seguir ajustando cantidades, marcar ingredientes, copiar, descargar texto o imprimir.
 
-Las categorías iniciales son una propuesta editorial: brownies en desayuno; burritos y caldo en comida y cena. Las ilustraciones son SVG locales. Las recetas se muestran en una sola columna de ancho completo, con filas compactas y controles táctiles para celular.
+Las categorías iniciales son una propuesta editorial: brownies y cuatro fichas pendientes en desayuno; burritos y caldo en comida y cena. Las ilustraciones son SVG locales. Las recetas se muestran en una sola columna de ancho completo, con filas compactas y controles táctiles para celular.
+
+El archivo recibido `data/Recetary_recetas.md` identifica siete recetas. Las tres primeras tienen cantidades y pasos. Los cuatro desayunos de *The Breakfast Blueprint* son fichas en espera: muestran solo ingredientes identificados, sin cantidades verificadas ni instrucciones. No pueden seleccionarse, ajustar porciones, entrar en la despensa o generar compras hasta contrastarlos con la fuente completa. Los datos nutricionales previos tampoco se muestran porque están pendientes de verificar.
 
 ## Cálculos y datos
 
@@ -30,7 +32,7 @@ Las categorías iniciales son una propuesta editorial: brownies en desayuno; bur
 - Al cambiar una cantidad se desmarca el ingrediente afectado para que se revise otra vez.
 - Los pasos están adaptados para referirse a las cantidades escaladas; la fuente íntegra está en `data/recetario-original.md`.
 
-Las recetas viven en `data/recipes.js`: añadir un objeto con un identificador único, categorías, rendimiento base e ingredientes permite ampliar el recetario. Esta primera versión no incluye un formulario para crear o editar recetas desde la web.
+Las recetas viven en `data/recipes.js`: añadir un objeto con un identificador único, categorías, rendimiento base e ingredientes permite ampliar el recetario. Las fichas incompletas viven en `pendingRecipes` dentro del mismo archivo; solo se trasladan a `recipes` después de documentar y verificar cantidades y pasos. Esta versión no incluye un formulario para crear o editar recetas desde la web.
 
 ## Guardado
 

@@ -8,8 +8,8 @@ const out = path.join(root, 'dist');
 // Explicit allowlist: source tooling, screenshots and preview pages never ship.
 const files = [
   'index.html', 'app.js', 'calculations.js', 'styles.css', 'themes.css', 'pantry.js', 'pantry.css',
-  'assets/brownies.svg', 'assets/burritos.svg', 'assets/caldo.svg', 'assets/icon.svg',
-  'data/recipes.js', 'data/recetario-original.md', '_headers'
+  'assets/brownies.svg', 'assets/burritos.svg', 'assets/caldo.svg', 'assets/rollitos.svg', 'assets/quesadilla.svg', 'assets/muffins.svg', 'assets/hotcakes.svg', 'assets/icon.svg',
+  'data/recipes.js', 'data/recetario-original.md', 'data/Recetary_recetas.md', '_headers'
 ];
 await rm(out, { recursive: true, force: true });
 for (const file of files) {
