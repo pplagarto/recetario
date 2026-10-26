@@ -5,6 +5,8 @@
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test tests/*.test.mjs",
+    "recipe:check": "node tools/recipe-intake.mjs --check",
+    "recipe:add": "node tools/recipe-intake.mjs",
     "build": "node build.mjs",
     "deploy": "npm run build && npx wrangler@4 deploy"
   },

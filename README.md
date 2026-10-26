@@ -73,7 +73,15 @@ La configuración solo sirve archivos estáticos; no ejecuta un Worker de backen
 
 La URL de producción tendrá su propio almacenamiento del navegador: la selección de localhost no se transfiere automáticamente. El guardado persiste entre visitas al mismo origen; no sincroniza dispositivos. La web requiere conexión para cargar y no incluye todavía caché para uso sin conexión.
 
-Para actualizar recetas, edita `data/recipes.js`, ejecuta `npm test` y envía los cambios a `main`. Conserva el nombre del Worker para mantener la dirección y el almacenamiento de los usuarios.
+Para las recetas nuevas, usa el importador descrito abajo. Las tres recetas iniciales permanecen en `data/recipes.js`. Conserva el nombre del Worker para mantener la dirección y el almacenamiento de los usuarios.
+
+## Agregar recetas con menos trabajo
+
+Para compartir una receta, usa [RECETA_NUEVA.md](RECETA_NUEVA.md) o envía la fuente completa. Una receta medible necesita rendimiento, ingredientes con cantidades y pasos; si falta alguno, se registra como ficha pendiente y queda fuera de las compras. No se inventan medidas.
+
+El flujo local convierte la información revisada en una ficha JSON, ejecuta `npm run recipe:check -- ruta/receta.json` y, si es válida, `npm run recipe:add -- ruta/receta.json`. El importador añade la ficha a `data/user-recipes.json` y genera `data/user-recipes.js`, que usa la web. Ya no hace falta modificar `app.js` o `data/recipes.js` por cada receta. Una ficha pendiente puede completarse después usando el mismo identificador; el importador la sustituye automáticamente. Las imágenes nuevas usan una ilustración genérica hasta que haya una propia.
+
+Antes de publicar se ejecutan `npm test` y `npm run build`; se revisa la receta y la lista de compras. Luego se envía el cambio a GitHub, que dispara el despliegue de Cloudflare. Esto permite usar un modelo más ligero para pasar la fuente a la ficha estructurada y reservar una revisión más cuidadosa para cantidades ambiguas o fuentes incompletas. El sitio público sigue siendo estático: no usa un modelo ni cobra por consulta de recetas.
 
 ## Mi despensa
 

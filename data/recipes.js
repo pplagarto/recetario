@@ -1,3 +1,5 @@
+import { userRecipes, userPendingRecipes } from './user-recipes.js';
+
 const i = (id, name, qty, unit, group, extra = {}) => ({ id, name, qty, unit, group, ...extra });
 export const recipes = [
   {
@@ -30,7 +32,8 @@ export const recipes = [
     ],
     steps: ['Coloca el pollo, la mitad de la cebolla, dos tercios del ajo, apio, perejil, laurel, orégano y sal en una olla. Cubre con agua del total indicado. Cocina a hervor suave 25–30 minutos o hasta que el pollo alcance 74 °C en el centro. Retira el pollo y reserva el caldo.', 'Rostiza los jitomates, la cebolla restante y el resto del ajo en una sartén con aceite durante 6–8 minutos.', 'Licúa lo rostizado con chipotle al gusto y parte del agua o caldo. Cuela si deseas una textura fina.', 'Cuela el caldo de pollo. Agrega zanahoria y chayote en cubitos; cocina 6–8 minutos. Añade calabacita, elote, garbanzos escurridos, salsa de chipotle y los ejotes si los elegiste. Cocina 6–10 minutos más.', 'Deshebra el pollo, incorpóralo y cocina 2–3 minutos. Ajusta sal, pimienta, picante y líquido.', 'Sirve con panela, aguacate y limón, repartiendo las cantidades indicadas entre las porciones.'],
     storage: 'Según el recetario: dividir en recipientes poco profundos y refrigerar o congelar dentro de las primeras 2 horas. Refrigerar a 4 °C o menos durante 3–4 días, o congelar 2–3 meses. Guardar panela, aguacate y limón por separado. Recalentar idealmente a 74 °C.'
-  }
+  },
+  ...userRecipes
 ];
 
 // These cards are deliberately separate from recipes: quantities and methods
@@ -40,4 +43,4 @@ export const pendingRecipes = [
   { id: 'quesadilla', title: 'Quesadilla proteica de desayuno', original: 'Breakfast Quesadilla', short: 'Tortilla con huevo, jamón, mozzarella y espinacas.', categories: ['desayuno'], image: 'quesadilla', yield: '1 porción (dato previo, sin verificar)', ingredients: ['Tortilla', 'Huevo', 'Jamón', 'Mozzarella', 'Espinacas', 'Pico de gallo'], missing: 'Cantidades, ingredientes de la salsa de aguacate y limón y preparación.' },
   { id: 'muffins', title: 'Muffins de huevo con brócoli y queso', original: 'Loaded Breakfast Egg Bites', short: 'Bocaditos con huevo, brócoli, quesos y tocino canadiense.', categories: ['desayuno'], image: 'muffins', yield: '12 piezas (dato previo, sin verificar)', ingredients: ['Huevo', 'Queso cottage', 'Queso cheddar', 'Brócoli', 'Cebollín', 'Tocino canadiense'], missing: 'Cantidades y preparación.' },
   { id: 'hotcakes', title: 'Hotcakes proteicos de rollo de canela', original: 'Cinnamon Roll Protein Pancakes', short: 'Hotcakes dulces con proteína de vainilla y canela.', categories: ['desayuno'], image: 'hotcakes', yield: '4 piezas (dato previo, sin verificar)', ingredients: ['Proteína en polvo sabor vainilla', 'Canela'], missing: 'Cantidades, otros ingredientes de la masa, glaseado y preparación.' }
-];
+].map(recipe => ({ ...recipe, source: 'data/Recetary_recetas.md' })).filter(recipe => !userRecipes.some(complete => complete.id === recipe.id)).concat(userPendingRecipes);
